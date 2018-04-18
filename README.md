@@ -16,8 +16,8 @@ Configured for a 7" Display
 
 Current version .5<br>
 
-[[https://github.com/creekhead/piWeather/blob/master/img/screenshot/PiWeather_V0.5.png|alt=octocat]]
+![alt tag](https://github.com/creekhead/piWeather/tree/master/img/screenshot/PiWeather_V0.5.png)
 
-TEST
+![Alt text](/img/screenshot/PiWeather_V0.5.png?raw=true "Early Screenshot V.5")
 
-[[https://github.com/creekhead/piWeather/tree/master/img/screenshot/PiWeather_V0.5.png|alt=octocat]]
+![Alt text](https://github.com/creekhead/piWeather/tree/master/img/screenshot/PiWeather_V0.5.png "Early Screenshot V.5")
