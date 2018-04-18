@@ -16,8 +16,4 @@ Configured for a 7" Display
 
 Current version .5<br>
 
-![alt tag](https://github.com/creekhead/piWeather/tree/master/img/screenshot/PiWeather_V0.5.png)
-
 ![Alt text](/img/screenshot/PiWeather_V0.5.png?raw=true "Early Screenshot V.5")
-
-![Alt text](https://github.com/creekhead/piWeather/tree/master/img/screenshot/PiWeather_V0.5.png "Early Screenshot V.5")
