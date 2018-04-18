@@ -6,13 +6,13 @@ long as you provide attribution back to me and don't hold me liable.
 https://github.com/JoshuaCarroll/Compass-/
 */
 
-console.log('loaded');
+console.log('COMPASS LOADED');
 var _objGlobalCompassForCallbackFunctions;
 function Compass (canvasElementId) {
 
     // Please do not hot link to my Dropbox in production.
-    document.getElementById(canvasElementId).style.backgroundImage = "url(compass/compass.png)";
-    this.needleImageURL = "compass/needle.png";
+    document.getElementById(canvasElementId).style.backgroundImage = "url(img/compass_s.png)";
+    this.needleImageURL = "img/needle_s.png";
 
     // --------------------------------------------
     this.debugMode = true;
@@ -24,7 +24,7 @@ function Compass (canvasElementId) {
     this.timeout = null;
 
     this.clearCanvas = function() {
-        this.ctx.clearRect(0, 0, 200, 200);
+        this.ctx.clearRect(0, 0, 100, 100);
     };
 
     this.calculateDegreeDifference = function (a,b) {
@@ -81,9 +81,9 @@ function Compass (canvasElementId) {
 
         this.clearCanvas();
         this.ctx.save();
-        this.ctx.translate(100, 100);
+        this.ctx.translate(50, 50);
         this.ctx.rotate(degrees * (Math.PI / 180));
-        this.ctx.drawImage(this.needle, -100, -100);
+        this.ctx.drawImage(this.needle, -50, -50);
         this.ctx.restore();
         this.currentAzimuth = degrees;
     };

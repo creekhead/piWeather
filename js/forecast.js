@@ -25,6 +25,7 @@ $( document ).ready(function() {
 	});
 
 	//make deg smaller
+    console.log("make deg smaller");
 	$('.weather_minmax .top').each(function(key, value) {
     	$($('.weather_minmax .top')[key]).html(parseInt($($('.weather_minmax .top')[key]).html())+'<b class="degSmaller">°F</b>')
     });
@@ -33,10 +34,18 @@ $( document ).ready(function() {
     });
 
     //moonPgase
-    var percentage=$(document.getElementById('moonPhase')).attr('percent')*.1;
+    var percentageMoon=$(document.getElementById('moonPhase')).attr('percent')*.1;
+    console.log("percentageMoon: "+percentageMoon);
     var waxwan=parseInt($(document.getElementById('moonPhase')).attr('phase'));
-    drawPlanetPhase(document.getElementById('moonPhase'), percentage, waxwan, {diameter:50, earthshine:0.1, blur:5, lightColour: '#9bf'});
-    console.log('MoonPhase: PercentageIlluminated: '+$(document.getElementById('moonPhase')).attr('percent')+' / '+percentage+' WaxWan: '+waxwan);
+    drawPlanetPhase(document.getElementById('moonPhase'), percentageMoon, waxwan, {diameter:50, earthshine:0.1, blur:5, lightColour: '#9bf'});
+    console.log('MoonPhase: PercentageIlluminated: '+$(document.getElementById('moonPhase')).attr('percent')+' / '+percentageMoon+' WaxWan: '+waxwan);
+
+
+    //WIND
+    var windDegrees=parseInt(jQuery('#windGustCanvas').attr('deg'));
+    console.log("windDegrees: "+windDegrees);
+    compass = new Compass("windGustCanvas");
+    compass.animate(windDegrees); // Set a default value
 
 });
 
