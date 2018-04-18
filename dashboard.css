@@ -1,0 +1,232 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic);
+
+body {font-family: "Source Sans Pro";}
+body, textarea {background-color: #1e1f22; color: #bfbfbf;}
+
+.futureForecast {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#div { float: left; }
+#chart_pressure, #rawData {clear: left;}
+
+#rawData { font-size: 0.75em; color: #7f7f7f; margin-bottom: 100px; }
+#rawData ul {
+  column-count: 3;
+  column-gap: 20px;
+  list-style-position: inside;
+}
+#footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #3e3f52;
+  text-align: center;
+}
+#footer a { color: #66ccFF; text-decoration: none; }
+#footer #repo { float: left; }
+#footer #codeDate { float: right; }
+
+.weather_minmax, .top, .bottom {
+    padding: 0 5px;
+}
+
+.weather_minmax {
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    top: 3px;
+}
+
+.bottom {
+    border-top: 1px solid #fff;
+    display: block;
+}
+
+div.forecastContainer {
+    width: 175px;
+    padding: 0px 10px;
+    margin: 0px;
+    border: 1px solid #ececec;
+    display: inline-block;
+}
+
+.weather_temp {
+    font-size: 27px;
+    font-family: cursive;
+    font-weight: bold;
+    color: aquamarine;
+    display: inline;
+}
+
+.forecastDateContainer {
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.forecastDateContainer span:last-child {
+    font-size: 11px;
+    color: #989797;
+}
+.forecastDateContainer span:first-child {
+    font-size: 13px;
+    color: bisque;
+    display: block;
+}
+
+.weather_main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: -6px 0 10px 0;
+    line-height: 22px;
+    font-size: 23px;
+    font-family: unset;
+}
+
+.weather_main b {
+    display: block;
+}
+
+.forecastImage {
+    position: relative;
+    top: -3px;
+    left: 25px;
+}
+
+.weather_temp_container {
+    display: flex;
+}
+
+.forecastDay {
+    display: flex;
+    flex-direction: column;
+}
+
+.weatherTemp {
+    font-size: 45px;
+    font-weight: bold;
+    color: #ff9488;
+}
+
+.weatherCurrent {
+    text-align: center;
+    padding: 0 0 18px;
+}
+
+.weatherUpdateDate {
+    font-size: 11px;
+    color: gray;
+    padding: 10px 0 0 0;
+    margin: 0 0 -10px;
+}
+
+img.bar {
+    visibility: hidden;
+    display: none;
+}
+
+.weatherTemp .weather_minmax {
+    top: -3px;
+}
+
+.weatherBaromoter {
+    position: absolute;
+    top: 17px;
+    right: 25px;
+}
+
+.mbPressure {
+    font-size: 21px;
+    color: #ffffff;
+    position: relative;
+    top: -68px;
+    font-weight: bold;
+    left: -1px;
+    text-shadow: 2px 2px #51409a;
+}
+
+.currentTempImage {
+    padding: 0 4px;
+    margin: -15px 0px;
+    position: relative;
+    top: 3px;
+}
+
+.currentTempDesc {
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 5px 0;
+    font-size: 22px;
+    font-family: inherit;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: ;
+}
+
+span.degSmall {
+    font-size: 25px;
+    position: relative;
+    top: -1px;
+}
+
+b.degSmaller {
+    font-size: 9px;
+    position: relative;
+    top: -2px;
+    font-family: inherit;
+}
+
+i.wi.wi-sunrise {
+    color: #ffe51f;
+    position: relative;
+    top: 2px;
+    left: -2px;
+}
+i.wi.wi-sunset {
+    color: #ffa129;
+    position: relative;
+    top: 2px;
+    left: -2px;
+    padding: 0 0 0 16px;
+}
+.weatherSunPhase em {
+    color: #ffe51f;
+    font-size: 12px;
+}
+.weatherSunPhase em:last-child {
+    color: #ffa129;
+}
+
+.weatherSunPhase em b {
+    color: #cfd0d6;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    top: 0px;
+}
+
+div#moonPhase {
+    position: relative;
+    top: -57px;
+    left: 32px;
+}
+
+div#moonPhaseContainer {
+    font-size: 9px;
+    line-height: 8px;
+    position: relative;
+    top: 30px;
+    color: wheat;
+}
+#moonPhaseContainer em{
+  display:block;
+}
