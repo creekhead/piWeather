@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html><head>
   <title>Newington, CT Air Quality &amp; Pollen | Weather Underground</title>
 </head>
@@ -9,6 +8,14 @@
 <uv-index-pyramid _ngcontent-c9="" _nghost-c18="">
    <div _ngcontent-c18="" class="pyramid">
       <!---->
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
+      <div _ngcontent-c18="" class="chunk"></div>
       <div _ngcontent-c18="" class="chunk"></div>
       <div _ngcontent-c18="" class="chunk moderate"></div>
       <div _ngcontent-c18="" class="chunk moderate"></div>
@@ -80,9 +87,6 @@ body.omnibus.page{
 }
  .pyramid[_ngcontent-c18] .chunk.moderate[_ngcontent-c18]{
     border-bottom-color:#FFB92F;
-}
-.pyramid[_ngcontent-c18] .chunk.hot[_ngcontent-c18]{
-    border-bottom-color:red;
 }
  *,:after,:before{
     box-sizing:inherit;

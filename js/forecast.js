@@ -35,10 +35,11 @@ $( document ).ready(function() {
 
     //moonPgase
     var percentageMoon=$(document.getElementById('moonPhase')).attr('percent')*.1;
+    var percentIlluminated_js=$(document.getElementById('moonPhase')).attr('percentIlluminated_js');
     console.log("percentageMoon: "+percentageMoon);
     var waxwan=parseInt($(document.getElementById('moonPhase')).attr('phase'));
-    drawPlanetPhase(document.getElementById('moonPhase'), percentageMoon, waxwan, {diameter:50, earthshine:0.1, blur:5, lightColour: '#9bf'});
-    console.log('MoonPhase: PercentageIlluminated: '+$(document.getElementById('moonPhase')).attr('percent')+' / '+percentageMoon+' WaxWan: '+waxwan);
+    drawPlanetPhase(document.getElementById('moonPhase'), percentIlluminated_js, waxwan, {diameter:50, earthshine:0.1, blur:5, lightColour: '#9bf'});
+    console.log('MoonPhase: PercentageIlluminated: '+$(document.getElementById('moonPhase')).attr('percent')+' / '+percentIlluminated_js+' WaxWan: '+waxwan);
 
 
     //WIND

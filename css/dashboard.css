@@ -30,16 +30,21 @@ body, textarea {background-color: #1e1f22; color: #bfbfbf;}
 #footer #repo { float: left; }
 #footer #codeDate { float: right; }
 
+.weatherTemp span.weather_minmax {
+    top: 3px;
+}
+
 .weather_minmax, .top, .bottom {
-    padding: 0 5px;
+    padding: 0 3px;
 }
 
 .weather_minmax {
     display: inline-block;
     text-align: center;
-    font-size: 12px;
+    font-size: 18px;
     position: relative;
-    top: 3px;
+    top: 0px;
+    font-weight: bold;
 }
 
 .bottom {
@@ -48,7 +53,7 @@ body, textarea {background-color: #1e1f22; color: #bfbfbf;}
 }
 
 div.forecastContainer {
-    width: 175px;
+    width: 172px;
     padding: 0px 10px;
     margin: 0px;
     border: 1px solid #ececec;
@@ -56,11 +61,12 @@ div.forecastContainer {
 }
 
 .weather_temp {
-    font-size: 27px;
-    font-family: cursive;
+    font-size: 45px;
     font-weight: bold;
     color: aquamarine;
     display: inline;
+    top: -3px;
+    position: relative;
 }
 
 .forecastDateContainer {
@@ -84,9 +90,9 @@ div.forecastContainer {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: -6px 0 10px 0;
+    margin: -8px -15px 1px -15px;
     line-height: 22px;
-    font-size: 23px;
+    font-size: 18px;
     font-family: unset;
 }
 
@@ -96,8 +102,7 @@ div.forecastContainer {
 
 .forecastImage {
     position: relative;
-    top: -3px;
-    left: 25px;
+
 }
 
 .weather_temp_container {
@@ -121,8 +126,8 @@ div.forecastContainer {
 }
 
 .weatherUpdateDate {
-    font-size: 11px;
-    color: gray;
+    font-size: 13px;
+    color: #b9b9b9;
     padding: 10px 0 0 0;
     margin: 0 0 -10px;
 }
@@ -149,7 +154,7 @@ img.bar {
     top: -68px;
     font-weight: bold;
     left: -1px;
-    text-shadow: 2px 2px #51409a;
+    text-shadow: 1px 1px 2px #0213fb;
 }
 
 .currentTempImage {
@@ -175,14 +180,15 @@ img.bar {
 span.degSmall {
     font-size: 25px;
     position: relative;
-    top: -1px;
+    top: -12px;
 }
 
 b.degSmaller {
     font-size: 9px;
     position: relative;
-    top: -2px;
+    top: -5px;
     font-family: inherit;
+    left: 1px;
 }
 
 i.wi.wi-sunrise {
@@ -242,11 +248,90 @@ div#moonPhaseContainer {
 div.windGust div:nth-child(2) {
     position: relative;
     top: -42px;
-    left: 1px;
+    left: 7px;
 }
 div.windGust div:nth-child(3) {
-    margin: 18px 0 0px 0;
+    margin: 40px -15px -40px 0;
 }
+
 canvas#windGustCanvas {
     margin: 0 0 -32px 0;
+}
+
+.windGust .dialFont span {
+    font-size: 8px;
+}
+
+
+/*! PYRAMID */
+ .pyramid[_ngcontent-c18]{
+
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]{
+    border-bottom:14px solid #D7D7D7;
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    height:0;
+    margin:3px auto;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(1){
+    width:2px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(2){
+    width:20px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(3){
+    width:39px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(4){
+    width:59px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(5){
+    width:77px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(6){
+    width:106px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(7){
+    width:124px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(8){
+    width:142px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(9){
+    width:160px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(10){
+    width:178px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(11){
+    width:196px;
+}
+ .pyramid[_ngcontent-c18] .chunk[_ngcontent-c18]:nth-child(12){
+    width:214px;
+}
+ .pyramid[_ngcontent-c18] .chunk.low[_ngcontent-c18]{
+    border-bottom-color:#5B9F49;
+}
+ .pyramid[_ngcontent-c18] .chunk.moderate[_ngcontent-c18]{
+    border-bottom-color:#FFB92F;
+}
+.pyramid[_ngcontent-c18] .chunk.hot[_ngcontent-c18]{
+    border-bottom-color:red;
+}
+ *,:after,:before{
+    box-sizing:inherit;
+}
+
+.uvIndex {
+    position: absolute;
+    margin: -42px 0px 0px 144px;
+}
+.uv_index_label.dialFont {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important;
+    font-size: 14px;
+}
+.uv_index_label span {
+    font-size: 8px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

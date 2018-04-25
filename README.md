@@ -1,19 +1,25 @@
-# pi_weather_display
+____________________________________________________________
+-			PI WEATHER V 0.8		   -
+------------------------------------------------------------
+=          NOTE:  This is a **ProjeDct In Progress**	   =
+============================================================
 
-Project in Progress
+April 20, 2018
 
-April 16, 2018
-
-This is the fist version of this HTML PI Weather Display, it uses WunderGround and OpenWeather API's, combines them to display the following
+This is the first version of the PHP/MYSQL/HTML based PI Weather Display for a 7" Display
+it uses WunderGround and OpenWeather API's at this time to narrow it down to just one of the two
+And display some of the following:
 
 Temperature
 Baramoter
 5 Day ForeCast
 MoonPhase
 Sunrise/Sunset
+Icons
+Wind
+UVIndex/Humidity
+Forecast
 
-Configured for a 7" Display
+Current version .8<br>
 
-Current version .5<br>
-
-![Alt text](/img/screenshot/PiWeather_V0.5.png?raw=true "Early Screenshot V.5")
+![Alt text](/img/screenshot/PiWeather_V0.9.png?raw=true "Early Screenshot V0.9")

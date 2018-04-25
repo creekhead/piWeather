@@ -62,13 +62,17 @@ function getRawWeatherData_fromsql(){
 function getRawWeatherData_tosql(){
 	//$json_wunderground = file_get_contents("http://api.wunderground.com/api/a4b1e907bb43a8dc/conditions/q/CT/Newington.json");
 	$json_wunderground = file_get_contents("http://api.wunderground.com/api/a4b1e907bb43a8dc/conditions/astronomy/q/CT/Newington.json");
-	$json_openweather = file_get_contents("http://api.openweathermap.org/data/2.5/weather?zip=06111,us&appid=5c507080d1448544b56d307f400bdeee&mode=json&units=imperial");
 
-	$json_openweather_forecast = file_get_contents("http://api.openweathermap.org/data/2.5/forecast?zip=06111,us&appid=5c507080d1448544b56d307f400bdeee&mode=json&units=imperial");
+	$json_wunderground_all = file_get_contents("http://api.wunderground.com/api/a4b1e907bb43a8dc/conditions/astronomy/hourly/forecast/forecast10day/almanac/alerts/currenthurricane/satellite/q/CT/Newington.json");
+
+	$json_openweather = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=41.68593&lon=-72.71117&appid=5c507080d1448544b56d307f400bdeee&mode=json&units=imperial&type=accurate");
+
+	$json_openweather_forecast = file_get_contents("http://api.openweathermap.org/data/2.5/forecast?lat=41.68593&lon=-72.71117&appid=5c507080d1448544b56d307f400bdeee&mode=json&units=imperial&type=accurate");
 
 	//$json_wunderground='testdata';
 	//$json_openweather='testdata';
 	$json_wunderground_serialized=serialize($json_wunderground);
+	$json_wunderground_serialized_all=$json_wunderground_all;
 	$json_openweather_serialized=serialize($json_openweather);
 	$json_openweather_forecast_serialized=serialize($json_openweather_forecast);
 	$con = new mysqli(DbSettings::$Address,DbSettings::$Username,DbSettings::$Password,DbSettings::$Schema);
@@ -76,7 +80,7 @@ function getRawWeatherData_tosql(){
 	if (mysqli_connect_errno()) {
 	    die('Error conecting to DB');
 	}else{
-		$sql = "INSERT INTO wunder_json (wunder_json,openweather_json,openweather_forecast) VALUES ('".$json_wunderground_serialized."','".$json_openweather_serialized."','".$json_openweather_forecast_serialized."')";
+		$sql = "INSERT INTO wunder_json (wunder_json,wunder_json_all,openweather_json,openweather_forecast) VALUES ('".$json_wunderground_serialized."','".$json_wunderground_serialized_all."','".$json_openweather_serialized."','".$json_openweather_forecast_serialized."')";
 
 		if ($con->query($sql) === TRUE) {
 	   		echo "New record created successfully";
