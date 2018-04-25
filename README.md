@@ -1,10 +1,13 @@
 ____________________________________________________________
--			PI WEATHER V 0.8		   -
+			<b>PI WEATHER V 0.9</b>		  
 ------------------------------------------------------------
-=          NOTE:  This is a **ProjeDct In Progress**	   =
-============================================================
 
-April 20, 2018
+= This is a **Project In Progress** =
+
+____________________________________________________________
+<hr style="color:tomato">
+<h3>April 20, 2018</h3>
+<hr style="color:tomato">
 
 This is the first version of the PHP/MYSQL/HTML based PI Weather Display for a 7" Display
 it uses WunderGround and OpenWeather API's at this time to narrow it down to just one of the two
