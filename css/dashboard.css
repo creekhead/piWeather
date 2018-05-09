@@ -1,8 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic);
 
 body {font-family: "Source Sans Pro";}
-body, textarea {background-color: #1e1f22; color: #bfbfbf;}
+body, textarea {
+    background-color: #1e1f22;
+    color: #bfbfbf;
 
+}
+.weatherContainer {
+    position: fixed;
+
+    height: 581px;
+}
+.noshow{
+    display:none;
+}
 .futureForecast {
     display: flex;
     justify-content: flex-start;
@@ -215,7 +226,7 @@ i.wi.wi-sunset {
 .weatherSunPhase em b {
     color: #cfd0d6;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
     position: relative;
     top: 0px;
 }
@@ -232,6 +243,7 @@ div#moonPhaseContainer {
     position: relative;
     top: 30px;
     color: wheat;
+    left: -5px;
 }
 #moonPhaseContainer em{
   display:block;
@@ -261,6 +273,109 @@ canvas#windGustCanvas {
 .windGust .dialFont span {
     font-size: 8px;
 }
+
+div#rainGuageContainer {
+    font-size: 1.4em;
+    margin: 20px 0 0 -20px;
+    line-height: 1.2em !important;
+    text-transform: uppercase;
+    position: absolute;
+    width: 181px;
+    top: 120px;
+    color: #e7de93;
+}
+
+.highNormRecrd {
+    position: relative;
+    top: -44px;
+    right: -60px;
+}
+
+.almanacRecordHigh, .almanacRecordLow {
+    background: #232427;
+    width: 135px;
+    padding: 5px;
+    margin: -7px 6px;
+    height: 135px;
+    box-shadow: 0px 0px 2px #fffbfb;
+}
+
+.almanacRecordContainer {
+    display: flex;
+    justify-content: center;
+    margin: 23px 0 0 640px;
+}
+.highYear,.lowYear {
+    margin: -47px auto;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.highYear{
+    color: cornflowerblue;
+}
+.highYear b {
+    color: #ff0000;
+}
+.lowYear b {
+    color: #ff0000;
+}
+.lowYear {
+    color: #80d840 !important;
+}
+div.almanacRecordLow > div:nth-child(1) {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin: -5px 0 3px;
+    color: #d84040;
+}
+div.almanacRecordHigh > div:nth-child(1) {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin: -5px 0 3px;
+    color: #82d6f1;
+}
+
+.weatherMinMaxLabelContainer {
+    margin: 25px 33px;
+}
+
+.relative_humidity.dialFont {
+    top: -20px;
+}
+
+.uv_index_label.dialFont {
+    top: -103px;
+    left: 4px;
+}
+
+div.satteliteCont > div > img {
+    height: 135px;
+    margin: 20px 10px;
+}
+
+.satteliteCont {
+    display: flex;
+    overflow: hidden;
+    height: 170px;
+    position: absolute;
+}
+
+.moonAge b {
+    color: #89a8e5;
+}
+.moonAge {
+    display: inline;
+    font-size: 1.7em;
+    position: relative;
+    left: 10px;
+    top: 4px;
+}
+
+
+
 
 
 /*! PYRAMID */

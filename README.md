@@ -22,7 +22,10 @@ Icons
 Wind
 UVIndex/Humidity
 Forecast
+Added High and Low Records
+Added Radar Data
+Added press 'R' To get moving radar
 
-Current version .8<br>
+Current version .95<Dbr>
 
-![Alt text](/img/screenshot/PiWeather_V0.9.png?raw=true "Early Screenshot V0.9")
+![Alt text](/img/screenshot/PiWeather_V0.95.png?raw=true "Early Screenshot V0.95")

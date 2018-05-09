@@ -11,9 +11,12 @@ if(isset($_GET['json'])){
    echo '<title>PKNC Weather</title>';
    echo '<meta http-equiv="refresh" content="600">';
 
+    echo "<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />";
+
    echo '<link rel="stylesheet" href="css/weather-icons.css">';
    echo '<link rel="stylesheet" href="css/weather-icons-wind.css">';
    echo '<link rel="stylesheet" href="css/dashboard.css">';
+   echo '<link rel="stylesheet" href="css/dashboard.js">';
    echo "<script src='http://code.jquery.com/jquery-2.2.4.min.js'></script>";
    echo "<script src='js/forecast.js'></script>";
    echo "<script src='js/moonphase.js'></script>";
@@ -75,10 +78,10 @@ if ($result->num_rows > 0) {
         if(isset($_GET['raw'])){
             echo "<BR>VAR: <b>$ parsed_wunder: </b><PRE>";
              echo '<h1>PARSED WUNDER</h1>';
-            print_r($parsed_wunder);
+            print_r($parsed_wunder_all);
             echo '<hr style="color:tomato">';
             echo '<h1>PARSED WUNDER DATA ALL - ALLDATA</h1>';
-             print_r($parsed_wunder_all);
+             print_r($parsed_wunder);
             echo '<hr style="color:tomato">';
              echo '<h1>PARSED OPENDATA</h1>';
              print_r($parsed_open);
@@ -94,6 +97,21 @@ if ($result->num_rows > 0) {
             exit;
         }
 
+        $almanac=$parsed_wunder_all->almanac;
+        $almanac_high=$almanac->temp_high;
+        $almanac_low=$almanac->low_high;
+
+        $satellite=$parsed_wunder_all->satellite;
+        $image_url=$satellite->image_url;
+        $image_url_=str_replace('&gtt=0', '', $image_url);
+
+        $image_url_ir4=$satellite->image_url_ir4;
+        $image_url_ir4_=str_replace('&gtt=0', '', $image_url_ir4);
+
+        $image_url_vis=$satellite->image_url_vis;
+        $image_url_vis_=str_replace('&gtt=0', '', $image_url_vis);
+
+
         //SUN PHASE
         $moon_phase = $parsed_wunder->moon_phase;
         $percentIlluminated = $moon_phase->percentIlluminated;
@@ -108,7 +126,6 @@ if ($result->num_rows > 0) {
         }
 
         $moon_phase_string='PercentageIlluminated: '.$percentIlluminated.'% / '.$percentIlluminated_js;
-        $moon_age_string='Age of Moon: '.$ageOfMoon;
         $phaseofMoon_string=$phaseofMoon.' '.$hemisphere.' H';
 
         $sun_phase = $parsed_wunder->sun_phase;
@@ -186,12 +203,21 @@ $wind_gust_mph=3.5
         $precip_today_in = $parsed_wunder->current_observation->precip_today_in;
         $leaf_wetness = $parsed_wunder->current_observation->leaf_wetness;
 
+/*
+
+echo '$precip_1hr_in='.$precip_1hr_in.'<BR>';
+echo '$precip_today_in='.$precip_today_in.'<BR>';
+echo '$leaf_wetness='.$leaf_wetness.'<BR>';
+exit;
+
+ */
         $icon = $parsed_wunder->current_observation->icon;
         $icon_url = $parsed_wunder->current_observation->icon_url;
         $forecast_url = $parsed_wunder->current_observation->forecast_url;
         $history_url = $parsed_wunder->current_observation->history_url;
         $ob_url = $parsed_wunder->current_observation->ob_url;
 
+    echo '<div class="weatherContainer">';
         echo '<div class="weatherCurrent">';
             echo '<div class="weatherTemp">';
                 echo $temp_f.'<span class="degSmall">&deg;F</span>';
@@ -205,8 +231,15 @@ $wind_gust_mph=3.5
                 echo '<div class="dialFont">'.$wind_mph.'<span>mi/h</span></div>';
                 echo '<div class="dialFont windGusts">'.$wind_gust_mph.'<span>mi/h</span></div>';
                 echo '<div style="width: 135px;">'.$wind_string.'</div>';
-                //echo '<div>Gusts: '.$wind_gust_mph.'</div>';
+                //rain
+                echo '<div id="rainGuageContainer" class="dialFont">';
+                    echo $precip_1hr_in.'/'.$precip_today_in.' in<br>lw: '.$leaf_wetness;
+                echo '</div>';
             echo '</div>';
+
+/*
+<div id="moonPhase" percent="82" percentilluminated_js="0.82" phase="1" class="moonPhase" style=""><div style="position: absolute; height: 50px; width: 50px; border: 1px solid rgb(62, 60, 60); background-color: black; border-radius: 25px; overflow: hidden;"><div style="position: absolute; background-color: rgb(153, 187, 255); border-radius: 25.0313px; height: 50.0625px; width: 50.0625px; left: 11.5px; top: -0.03125px; box-shadow: rgb(153, 187, 255) 0px 0px 5px 5px; opacity: 0.9;"></div></div></div><em>PercentageIlluminated: 82% / 0.82</em><em>Waxing Gibbous North H</em><em>Age of Moon: 11</em></div>
+*/
 
             //UV INDEX
             $uv_index_round=round($uv_index);
@@ -266,30 +299,78 @@ $wind_gust_mph=3.5
                 //MOONPHASE
                 echo '<div id="moonPhaseContainer">';
                     echo '<div id="moonPhase" percent="'.$percentIlluminated.'" percentIlluminated_js="'.$percentIlluminated_js.'" phase="'.$phaseofMoon_ww.'" class="moonPhase" style=""></div>';
-                    echo '<em>'.$moon_phase_string.'</em>';
-                    echo '<em>'.$phaseofMoon_string.'</em>';
-                    echo '<em>'.$moon_age_string.'</em>';
+                    //echo '<em>'.$moon_phase_string.'</em>';
+                    //echo '<em>'.$phaseofMoon_string.'</em>';
+                    echo '<span class="moonAge">Age of Moon: <b>'.$ageOfMoon.'</b></span>';
                 echo '</div>';//moonPhaseContainer
             echo '</div>';//weatherBaromoter
 
 
 
             echo '<div class="weatherUpdateDate">';
-                echo date('D M j G:i:s A',$local_epoch);
+                echo date('D M j g:i:s A',$local_epoch);
             echo '</div>';
         echo '</div>';//weatherCurrent
 
         include('forecast.php');
 
-        echo '</body>';
-        echo '</html>';
+        echo '<div class="satteliteCont">';
+            echo '<div class="sat1">';
+             echo '<img id="radarMoving" class="noshow" src="#" link="http://api.wunderground.com/api/a4b1e907bb43a8dc/animatedradar/animatedsatellite/q/CT/Newington.gif?num=10&delay=30&width=600&interval=30&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0">';
+            echo '</div>';
+
+            echo '<div class="sat2">';
+             echo '<img src="'.$image_url_ir4_.'">';
+            echo '</div>';
+
+            echo '<div class="sat3">';
+             echo '<img src="'.$image_url_vis_.'">';
+            echo '</div>';
+        echo '</div>';
+        echo '<div class="almanacRecordContainer">';
+            echo '<div class="almanacRecordHigh">';
+                echo "<div class='highYear'>HIGHEST: <b>".$almanac->temp_high->recordyear."</b></div>";
+                echo '<div class="weatherMinMaxLabelContainer">';
+                    echo '<span class="weatherMinMaxLabel">';
+                        echo '<span class="top" style="">Normal</span>';
+                        echo '<span class="bottom" style="width: 47px;">Record</span>';
+                    echo '</span>';
+
+                    echo '<div class="highNormRecrd">';
+                        echo '<span class="weather_minmax" min="'.$almanac->temp_high->normal->F.'" max="'.$almanac->temp_high->record->F.'">'.$almanac->temp_high->normal->F.'&deg;F/'.$almanac->temp_high->record->F.'&deg;F</span>';
+                    echo '</div>';//weatherMinMaxLabel
+                echo '</div>';//weatherMinMaxLabelContainer
+                //echo "<div class='highYear'>".$almanac->temp_high->recordyear.'</div>';
+            echo '</div>';//almanacRecordHigh
+
+
+            echo '<div class="almanacRecordLow">';
+                echo "<div class='lowYear'>LOWEST: <b>".$almanac->temp_low->recordyear."</b></div>";
+                echo '<div class="weatherMinMaxLabelContainer">';
+                    echo '<span class="weatherMinMaxLabel">';
+                        echo '<span class="top" style="">Normal</span>';
+                        echo '<span class="bottom" style="width: 47px;">Record</span>';
+                    echo '</span>';
+
+                    echo '<div class="highNormRecrd">';
+                         echo '<span class="weather_minmax" min="'.$almanac->temp_low->normal->F.'" max="'.$almanac->temp_low->record->F.'">'.$almanac->temp_low->normal->F.'&deg;F/'.$almanac->temp_low->record->F.'&deg;F</span>';
+                    echo '</div>';
+                echo '</div>';
+                //echo "<div class='lowYear'>".$almanac->temp_low->recordyear.'</div>';
+            echo '</div>';//almanacRecordLow
+        echo '</div>';//almanacRecordContainer
+
+
+
 
     }
 }
+echo '</div>';//weatherContainer
 
 $result->close();
 mysqli_close($con);
 
-
+echo '</body>';
+echo '</html>';
 
 ?>

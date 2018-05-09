@@ -48,6 +48,20 @@ $( document ).ready(function() {
     compass = new Compass("windGustCanvas");
     compass.animate(windDegrees); // Set a default value
 
+
+    $(document).ready(function() {
+        $(this).bind('keypress', function(e) {
+            var key = (e.keyCode ? e.keyCode : e.charCode);
+            if(String.fromCharCode(key) !== 'r')
+                return;
+
+            $('#radarMoving').removeClass('noshow');
+            var radLink=$('#radarMoving').attr('link');
+            $('#radarMoving').attr('src',radLink);
+
+        });
+    });
+
 });
 
 

@@ -218,6 +218,7 @@ function updateDataAndCharts(result) {
 }
 
 function updateCharts() {
+    debugger;
     if (window.console) console.log("Calling updateCharts");
     chtTemp.update(intTemperature);
     chtGroundTemp.update(intGroundTemperature);
