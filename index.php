@@ -10,17 +10,27 @@ if(isset($_GET['json'])){
    echo '<meta charset="UTF-8">';
    echo '<title>PKNC Weather</title>';
    echo '<meta http-equiv="refresh" content="600">';
-
+   echo '<meta name="apple-mobile-web-app-capable" content="yes">';
+   echo '<meta name="apple-mobile-web-app-status-bar-style" content="black">';
     echo "<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />";
 
+    /********************************************************
+    *                       CSS                   *
+    ********************************************************/
    echo '<link rel="stylesheet" href="css/weather-icons.css">';
    echo '<link rel="stylesheet" href="css/weather-icons-wind.css">';
    echo '<link rel="stylesheet" href="css/dashboard.css">';
-   echo '<link rel="stylesheet" href="css/dashboard.js">';
+   //echo '<link rel="stylesheet" href="css/dashboard.js">';
+
+    /********************************************************
+    *                       JAVASCRIPT                   *
+    ********************************************************/
    echo "<script src='http://code.jquery.com/jquery-2.2.4.min.js'></script>";
    echo "<script src='js/forecast.js'></script>";
    echo "<script src='js/moonphase.js'></script>";
    echo "<script src='js/compass.js'></script>";
+   echo "<script src='js/dashboard.js'></script>";
+   //echo "<script src='js/dashboard_google.js'></script>";    //uses google charts
 
    echo '</head>';
    echo '<body>';
@@ -315,16 +325,28 @@ exit;
         include('forecast.php');
 
         echo '<div class="satteliteCont">';
+
+	echo '<div class="sat0" style="height: 155px;">';
+		echo '<img id="radarMoving" class="" src="//icons.wxug.com/data/weather-maps/radar/united-states/united-states-current-radar-animation.gif" style="height: 181px;position: relative;top: -10px;">';
+	echo '</div>';
+
+	//echo '<div class="sat0"><img id="radarMoving" class="" src="//icons.wxug.com/data/weather-maps/radar/united-states/united-states-current-radar-animation.gif"></div>';
+
             echo '<div class="sat1">';
-             echo '<img id="radarMoving" class="noshow" src="#" link="http://api.wunderground.com/api/a4b1e907bb43a8dc/animatedradar/animatedsatellite/q/CT/Newington.gif?num=10&delay=30&width=600&interval=30&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0">';
+             echo '<img id="radarMoving" class="" src="http://api.wunderground.com/api/a4b1e907bb43a8dc/animatedradar/animatedsatellite/q/CT/Newington.gif?num=10&delay=30&width=600&interval=30&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0">';
             echo '</div>';
 
-            echo '<div class="sat2">';
+            echo '<div class="sat2 noshow">';
              echo '<img src="'.$image_url_ir4_.'">';
             echo '</div>';
 
             echo '<div class="sat3">';
              echo '<img src="'.$image_url_vis_.'">';
+            echo '</div>';
+
+
+            echo '<div class="fullScreenButton noshow">';
+             echo '<input type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fullscreen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" onclick="toggleFullScreen()">';
             echo '</div>';
         echo '</div>';
         echo '<div class="almanacRecordContainer">';
@@ -367,6 +389,9 @@ exit;
 }
 echo '</div>';//weatherContainer
 
+echo '<div>';//weatherContainer
+echo '<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>';//weatherContainer
+echo '</div>';//weatherContainer
 $result->close();
 mysqli_close($con);
 
