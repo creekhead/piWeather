@@ -1,1 +1,1 @@
-*/15 * * * * wget -q -O /dev/null "http://10.1.10.143/weather/getwunderground_data.php" > /dev/null 2>&1
+*/15 * * * * wget -q -O /dev/null "http://10.1.10.40/weather/getwunderground_data.php" > /dev/null 2>&1
