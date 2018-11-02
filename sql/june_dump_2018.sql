@@ -45,7 +45,7 @@ CREATE TABLE `RPiWx_SETTINGS` (
 
 LOCK TABLES `RPiWx_SETTINGS` WRITE;
 /*!40000 ALTER TABLE `RPiWx_SETTINGS` DISABLE KEYS */;
-INSERT INTO `RPiWx_SETTINGS` VALUES (5,'WUNDERGROUND_ID','creekhead@yahoo.com'),(6,'WUNDERGROUND_PASSWORD','Summer5969'),(7,'showMetricAndCelsiusMeasurements','0'),(8,'showPressureInMillibars','0'),(10,'stationElevationInMeters','33.9');
+INSERT INTO `RPiWx_SETTINGS` VALUES (5,'WUNDERGROUND_ID','creekhead@yahoo.com'),(6,'WUNDERGROUND_PASSWORD','******'),(7,'showMetricAndCelsiusMeasurements','0'),(8,'showPressureInMillibars','0'),(10,'stationElevationInMeters','33.9');
 /*!40000 ALTER TABLE `RPiWx_SETTINGS` ENABLE KEYS */;
 UNLOCK TABLES;
 
